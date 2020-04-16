@@ -12,6 +12,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './components/map/map.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {Constant} from "./utils/constants";
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatButtonModule,
     MatProgressSpinnerModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDTixkpugrGiJ3YHQlnulIW_shRuQFGnQA',
+      apiKey: Constant.key,
       
     })
   ],
