@@ -1,4 +1,4 @@
-import { MockService } from './../../services/mock.service';
+import { MockService } from './../../Shared/services/mock.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
