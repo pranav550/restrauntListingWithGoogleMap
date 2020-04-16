@@ -1,0 +1,36 @@
+
+    <mat-list>
+    <!-- <div mat-subheader>Folders</div> -->
+    <mat-list-item *ngFor="let restaurant of restaurants ; let j=index">
+      <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+
+      
+      <!-- <div mat-line>{{restaurant.name}}</div> -->
+      <div mat-line>
+        <mat-card class="example-card">
+            <mat-card-header class="example-header">
+              <div mat-card-avatar   ></div>
+                <!-- <a  [routerLink]="['/restaurant',restaurant.id]">{{restaurant.name}}</a> -->
+              <mat-card-title  [routerLink]="['/restaurant',restaurant.id]" (click)="selectedRestuarant(restaurant)" >{{restaurant.name}}</mat-card-title>
+             <img mat-card-image src="{{restaurant.photograph}}"  >
+             
+             <mat-card-subtitle class="example-rating">
+              <i class="fa" [ngClass]="{'fa-star-o':!item,'fa-star':item}" *ngFor="let item of starList |slice:(j)*5:5*(j+1) ; let i=index" ></i>
+            
+             </mat-card-subtitle>
+             <mat-card-subtitle>{{restaurant.address}}</mat-card-subtitle>
+            </mat-card-header>
+            
+            
+           
+          </mat-card>
+      </div>
+      
+    </mat-list-item>
+    
+  </mat-list>
+
+  <mat-card *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center">
+    <mat-spinner></mat-spinner>
+  
+  </mat-card>

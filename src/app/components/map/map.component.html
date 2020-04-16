@@ -1,0 +1,32 @@
+<agm-map
+[latitude]="lat"
+[longitude]="lng"
+[zoom]="12"
+
+>
+<agm-marker
+  *ngFor="let marker of markers; index as i"
+  [latitude]="marker.lat"
+  [longitude]="marker.lng"
+  [opacity]="marker.alpha"
+  [markerDraggable]="true"
+  (markerClick)="openWindow(marker.id)"
+  
+  id="{{'marker-'+i}}"
+>
+<agm-info-window [isOpen]="isInfoWindowOpen(marker.id)"    >
+  <strong>{{marker.name}}</strong>
+</agm-info-window>
+
+</agm-marker>
+<agm-rectangle
+  [north]="max('lat')"
+  [east]="max('lng')"
+  [south]="min('lat')"
+  [west]="min('lng')"
+>
+</agm-rectangle>
+</agm-map>
+<p *ngIf="selectedMarker">
+Lat: {{ selectedMarker.lat }} Lng: {{ selectedMarker.lng }}
+</p>

@@ -1,0 +1,28 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover; */
+  }
+
+  .fa-star{
+    color: orange;
+  }
+  
+  .fa-star-o{
+    color: orange;
+  }
+
+ .cross-icon{
+    color: red;
+  }
+
+  .description{
+    margin-top: 36px;
+  }
+
+  .close-wrpper{
+    float: right;
+  }

@@ -1,0 +1,38 @@
+
+
+.example-card {
+    max-width: 400px;
+   
+  }
+
+  .mat-list-base .mat-list-item{
+  height: auto;
+}
+  
+  .example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover; */
+   
+  }
+
+  .mat-card-image {
+    width: calc(25% + 0px);
+    margin: 0 0 0 0
+   
+}
+
+.fa-star{
+  color: orange;
+}
+
+.fa-star-o{
+  color: orange;
+}
+
+.example-rating{
+  display: inline;
+}
+
+.mat-card-header .mat-card-subtitle:not(:first-child) {
+  width: 230px;
+}
