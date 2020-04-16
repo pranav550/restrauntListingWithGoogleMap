@@ -7,7 +7,6 @@ import { ListComponent } from './components/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
-import { RatingPipe } from './rating.pipe';
 import { DetailsComponent } from './components/details/details.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './components/map/map.component';
@@ -17,7 +16,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   declarations: [
     AppComponent,
     ListComponent,
-    RatingPipe,
     DetailsComponent,
     MapComponent,
     
