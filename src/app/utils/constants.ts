@@ -1,6 +1,3 @@
 export namespace Constant {
-    export const key = "AIzaSyDTixkpugrGiJ3YHQlnulIW_shRuQFGnQA";
-   
-  
-  
-  }
+  export const key = "AIzaSyDv-qGYiJCVSKtYlKEozySW6JnVa0RGzKU";
+}

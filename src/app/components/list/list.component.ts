@@ -1,7 +1,7 @@
-import { MockService } from './../../Shared/services/mock.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-
+import { Restaunt } from './../../Shared/models/restraunt';
+import { MockService } from './../../Shared/services/mock.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class ListComponent implements OnInit {
   isLoading: boolean = true;
-  restaurants: any[];
+  restaurants: Restaunt[];
   rating: number;
   starList: boolean[] = [];
   initialValue: number = 0;
@@ -24,12 +24,12 @@ export class ListComponent implements OnInit {
   }
 
   // function for listing the panel
-  getListing() {
+  public getListing(): void {
     this.isLoading = true;
     this.mock.getData().subscribe(data => {
       this.isLoading = false;
       this.restaurants = data.restaurants
-      // rating
+      //------ rating start-----------
       data.restaurants.map(data => {
         this.rating = data.rating
         for (let j = 0; j < this.rating; j++) {
@@ -39,13 +39,12 @@ export class ListComponent implements OnInit {
           this.starList.push(false);
         }
       })
-
+      // --------rating end-------
     })
   }
-  
+
   // function for selected restraunt
-  selectedRestuarant(event) {
-    // console.log(event)
+ public selectedRestuarant(event:MouseEvent): void {
     this.mock.restuarantInfo.next(event);
   }
 

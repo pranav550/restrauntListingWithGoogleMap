@@ -1,6 +1,6 @@
 import { MockService } from './../../Shared/services/mock.service';
 import { Component, OnInit } from '@angular/core';
-
+import { Restaunt } from './../../Shared/models/restraunt';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -11,12 +11,11 @@ export class MapComponent implements OnInit {
 
   lat: number = 40.713829;
   lng: number = -73.989667;
-  selectedMarker;
-  markers: any = [];
+  markers: Restaunt[];
   name: string;
   restuarantId: number;
   infoWindowIsOpen: boolean = false;
-  openedWindow: number = 0;
+  openedWindow: number;
   constructor(private mock: MockService) {
 
   }
@@ -25,18 +24,22 @@ export class MapComponent implements OnInit {
   }
 
   // function for map displaying
-  getMap() {
+  public getMap(): void {
     this.mock.getData().subscribe(data => {
-      this.markers = data.restaurants
-      data.restaurants.map(data => {
-        // behab=viour subject call
-        this.mock.getRestuarant.subscribe(resp => {
-          this.restuarantId = Number(resp)
-          this.name = resp['name']
-          this.restuarantId = Number(resp['id'])
-          this.openWindow(this.restuarantId)
-        })
+      this.markers = data['restaurants']
+      data['restaurants'].map(data => {
+        // behaviour subject call
+       this.getSelectedRestaurantId()
       })
+    })
+  }
+
+  // function for selected resturant Id
+  public getSelectedRestaurantId(){
+    this.mock.getRestuarant.subscribe(resp => {
+      this.name = resp['name']
+      this.restuarantId = Number(resp['id'])
+      this.openWindow(this.restuarantId)
     })
   }
 
@@ -47,17 +50,16 @@ export class MapComponent implements OnInit {
   }
   // get min cordinate
   min(coordType: 'lat' | 'lng'): number {
-
     return Math.min(...this.markers.map(marker => marker[coordType]));
   }
- 
+
   // on open window informaation
   isInfoWindowOpen(id) {
     return this.openedWindow == id;
   }
-  
+
   // on marker click
-  openWindow(id) {
+  public openWindow(id) {
     this.openedWindow = id;
   }
 
