@@ -9,13 +9,12 @@ import { Restaunt } from './../../Shared/models/restraunt';
 export class MapComponent implements OnInit {
   title = "angular9";
 
-  lat: number = 40.713829;
-  lng: number = -73.989667;
-  markers: Restaunt[];
+  lati: number = 40.713829;
+  lngi: number = -73.989667;
+  markerss: Restaunt[];
   name: string;
   restuarantId: number;
-  infoWindowIsOpen: boolean = false;
-  openedWindow: number;
+  openedWindows: number;
   constructor(private mock: MockService) {
 
   }
@@ -26,7 +25,7 @@ export class MapComponent implements OnInit {
   // function for map displaying
   public getMap(): void {
     this.mock.getData().subscribe(data => {
-      this.markers = data['restaurants']
+      this.markerss = data['restaurants']
       data['restaurants'].map(data => {
         // behaviour subject call
        this.getSelectedRestaurantId()
@@ -46,21 +45,21 @@ export class MapComponent implements OnInit {
 
   // get max cordinate
   max(coordType: 'lat' | 'lng'): number {
-    return Math.max(...this.markers.map(marker => marker[coordType]));
+    return Math.max(...this.markerss.map(marker => marker[coordType]));
   }
   // get min cordinate
   min(coordType: 'lat' | 'lng'): number {
-    return Math.min(...this.markers.map(marker => marker[coordType]));
+    return Math.min(...this.markerss.map(marker => marker[coordType]));
   }
 
   // on open window informaation
   isInfoWindowOpen(id) {
-    return this.openedWindow == id;
+    return this.openedWindows == id;
   }
 
   // on marker click
   public openWindow(id) {
-    this.openedWindow = id;
+    this.openedWindows = id;
   }
 
 

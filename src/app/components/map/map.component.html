@@ -1,22 +1,16 @@
 <agm-map
-[latitude]="lat"
-[longitude]="lng"
-[zoom]="12"
-
->
-<agm-marker
-  *ngFor="let marker of markers;"
+[latitude]="lati"
+[longitude]="lngi"
+[zoom]="12">
+<agm-marker *ngFor="let marker of markerss;"
   [latitude]="marker.lat"
   [longitude]="marker.lng"
   [opacity]="marker.alpha"
   [markerDraggable]="true"
-  (markerClick)="openWindow(marker.id)"
->
+  (markerClick)="openWindow(marker.id)">
 <agm-info-window [isOpen]="isInfoWindowOpen(marker.id)"    >
   <strong>{{marker.name}}</strong>
 </agm-info-window>
-
 </agm-marker>
-
 </agm-map>
 

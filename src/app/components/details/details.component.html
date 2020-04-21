@@ -5,45 +5,44 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <h1>{{restaurantObj.name}}</h1>
-
-    <!-- <mat-card-title>{{restuarantName}}</mat-card-title>
-      <mat-card-subtitle>{{restuarantName}}</mat-card-subtitle> -->
   </mat-card-header>
 
   <div class="example-button-row">
-    <!-- <button mat-raised-button color="grey">Basic</button> -->
     <button mat-button>Website</button>
     <button mat-button>Direction</button>
     <button mat-button>Save</button>
   </div>
+
   <mat-card-subtitle class="example-rating">
     <i class="fa" [ngClass]="{'fa-star-o':!item,'fa-star':item}" *ngFor="let item of starList  ; let i=index"></i>
-
   </mat-card-subtitle>
+
   <mat-card-subtitle>₹₹₹{{restaurantObj.seciality}}</mat-card-subtitle>
 
   <mat-divider></mat-divider>
-  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  
   <mat-card-content class="description">
     <p>
       {{restaurantObj.desc}}
     </p>
   </mat-card-content>
+
   <mat-card-content>
     <span class="cross-icon">X</span> {{restaurantObj.service1}}
     <span class="cross-icon">X</span> {{restaurantObj.service2}}
   </mat-card-content>
+
   <mat-card-content>
     <b>Address:</b>{{restaurantObj.address}}
   </mat-card-content>
+
   <mat-card-content>
     <b>Hours:</b>{{restaurantObj.address}}
   </mat-card-content>
 
   <b>Reviews:</b>
   <mat-card-content *ngFor="let review of restaurantObj.reviews">
-
-    <mat-card-content>
+  <mat-card-content>
       <b>Comment:</b>{{review.comments}}</mat-card-content>
   </mat-card-content>
 
